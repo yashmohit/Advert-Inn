@@ -3,29 +3,32 @@ package com.example.win81.project_advertinn_v2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.win81.project_advertinn_v2.Adapters.CategoryAdapter;
 import com.example.win81.project_advertinn_v2.Adapters.CategoryResult_Adapter;
 import com.example.win81.project_advertinn_v2.dto.CategoryName;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Category_Result extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private List<CategoryName> categoryList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private CategoryResult_Adapter mAdapter;
+    private CategoryAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category__result);
+        setContentView(R.layout.activity_home);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        mAdapter = new CategoryResult_Adapter(categoryList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        mAdapter = new CategoryAdapter(categoryList);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(),3);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
