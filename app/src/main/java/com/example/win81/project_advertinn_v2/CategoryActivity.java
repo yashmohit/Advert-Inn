@@ -63,7 +63,7 @@ public class CategoryActivity extends AppCompatActivity {
        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               Intent in= new Intent(getApplicationContext(),CategoryResultActivity.class);
+               Intent in= new Intent(getApplicationContext(),Category_Result.class);
                startActivity(in);
            }
        });
